@@ -37,7 +37,7 @@ echo $twig->render('view.html', [
         array(
             array( 'text' => 'post max size 128 MB' ),
             array( 'text' => 'upload max filesize 128 MB' ),
-            array( 'text' => '>max input vars 2500' )
+            array( 'text' => 'max input vars 2500' )
         ),
     ),
 
