@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ title }}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+    </head>
+    <body>
+        <header>
+            <div class="container logo-menu hd">
+                <div class="row">
+                    <div class="col-5 d-flex align-items-stretch">
+                        <div class="col-12 deals">
+                            <small>Gratis Ebook 9 Cara Cerdas Menggunakan Domain [x]</small>
+                        </div>
+                    </div>
+                    <div class="col-7">
+                        <nav class="nav justify-content-end">
+                            {% for inf in info %}
+                            <a class="nav-link small d-flex align-content-center {{ inf.class }} px-2" href="{{ inf.link }}"
+                            {{ ( inf.onclick ) ? 'onclick=' ~ inf.onclick ~ '' }}
+                            ><i class="material-icons px-1">{{ inf.icon }}</i>{{ inf.text }}</a>
+                            {% endfor %}
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="scroller_anchor"></div>
+            <div class="mobile container-mobile logo-menu logo-menu-mobile">
+                <div class="row">
+                    <div class="col-2 py-3">
+                        <a href="https://www.niagahoster.co.id/"><img src="assets/svg/niagahoster-logo-mobile.svg" class="logo-mobile" alt="niagahoster"></a>
+                    </div>
+                    <div class="col-10 align-self-center">
+                        <nav class="nav justify-content-end">
+                            {% for inf in info %}
+                            <a class="nav-link {{ ( inf.link == 'member' ) ? '' : 'nav-link-mobile' }} {{ inf.class }} px-2" href="{{ inf.link }} {{ ( inf.onclick ) ? 'onclick=' ~ inf.onclick ~ '' }}"><i class="material-icons px-1">{{ inf.icon }}</i>{{ inf.text }}</a>
+                            {% endfor %}
+                            <a href="javascript:void(0)" id="mobile-menu-toggle" class="nav-link"><span class="border border-dark rounded p-1"><i class="material-icons px-1">menu</i></span></a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-0">
+            <div class="container hd">
+                <div class="row py-3">
+                    <div class="col-2">
+                        <a href="https://www.niagahoster.co.id/"><img src="assets/svg/niagahoster-logo.svg" class="logo" alt="niagahoster"></a>
+                    </div>
+                    <div class="col-10 align-self-center">
+                        <nav class="nav justify-content-end header-menu">
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile nav flex-column header-menu nav-top-menu bg-secondary" style="display: none; margin-top: 0px;">
+                    <div class="nav ">
+                    {% for inf in info %}
+                        {% if inf.link != 'member' %}
+                        <a class="nav-link {{ inf.class }} text-white p-2" href="{{ inf.link }} {{ ( inf.onclick ) ? 'onclick=' ~ inf.onclick ~ '' }}"><i class="material-icons px-1">{{ inf.icon }}</i>{{ inf.text }}</a>
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+            </div>
+            <hr class="my-0">
+        </header>
+        <div class="trigger-margin-top"></div>
+
+        <div class="container py-5 pb-4">
+            <div class="row banner">
+                <div class="col-12 col-md-6">
+                    <h1 class="montserrat-bold text-white">PHP Hosting</h1>
+                    <p class="montserrat-light">Cepat, handal, penuh dengan modul PHP yang anda butuhkan</p>
+                    <ul class="pt-3 fitur pl-0">
+                        {% for ban in banner %}
+                        <li class="montserrat-light font-size-16">{{ ban }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="col-12 col-md-6">
+                    <img class="banner-img float-right" src="assets/svg/illustration banner PHP hosting-01.svg">
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="container php-feature py-4">
+            <div class="row">
+                <div class="offset-1 col-10">
+                    <div class="row">
+                        {% for php_feature in php_features %}
+                        <div class="col-md-4 col-sm-12 d-flex justify-content-center text-center flex-column mb-5">
+                            <div class="d-flex flex-grow-1">
+                                <img src="{{ php_feature.image }}" alt="" class="img-fluid d-block mb-4 mx-auto">
+                            </div>
+                            <div>
+                                <span class="montserrat-light">{{ php_feature.text }}</span>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container pricing py-4">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="montserrat-bold">Paket Hosting Singapura yang Tepat</h2>
+                    <p class="montserrat-light font-size-25">Diskon 40% + Domain dan SSL Gratis untuk Anda</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-3 price px-0">
+                    <div class="price-wrapper">
+                        <div class="price-header">
+                            <h4 class="montserrat-bold">Bayi</h4>
+                        </div>
+                        <div class="price-content"></div>
+                        <div class="user-registered">
+                            <span class="montserrat-light font-size-14"><strong>938</strong> Pengguna Terdaftar</span>
+                        </div>
+                        <div class="benefits">
+                            <ul class="px-0 py-3">
+                                <li class="py-1 montserrat-light font-size-14"><strong>0.5X RESOURCE POWER</strong></li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>500 MB</strong> Disk Space</li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>Unlimited</strong> Bandwidth</li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>Unlimited</strong> Databases</li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>1</strong> Domain</li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>Instant</strong> Backup</li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>Unlimited SSL</strong> Gratis Selamanya</li>
+                            </ul>
+                        </div>
+                        <div class="mb-5">
+                            <a href="#" class="rounded-button montserrat-bold font-size-14">Pilih Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 price px-0">
+                    <div class="price-wrapper">
+                        <div class="price-header">
+                            <h4 class="montserrat-bold">Pelajar</h4>
+                        </div>
+                        <div class="price-content"></div>
+                        <div class="user-registered">
+                            <span class="montserrat-light font-size-14"><strong>4.168</strong> Pengguna Terdaftar</span>
+                        </div>
+                        <div class="benefits">
+                            <ul class="px-0 py-3">
+                                <li class="py-1 montserrat-light font-size-14"><strong>1X RESOURCE POWER</strong></li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>Unlimited</strong> Disk Space</li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>Unlimited</strong> Bandwidth</li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>Unlimited</strong> POP3 Email</li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>Unlimited</strong> Databases</li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>10</strong> Addon Domain</li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>Instant</strong> Backup</li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>Domain Gratis</strong> Selamanya</li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>Unlimited SSL</strong> Gratis Selamanya</li>
+                            </ul>
+                        </div>
+                        <div class="mb-5">
+                            <a href="#" class="rounded-button montserrat-bold font-size-14">Pilih Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 price px-0">
+                    <div class="price-wrapper best-seller">
+                        <div class="best-seller-ribbon">
+                            <img src="assets/images/best-seller-ribbon.png" alt="">
+                        </div>
+                        <div class="price-header">
+                            <h4 class="montserrat-bold">Personal</h4>
+                        </div>
+                        <div class="price-content"></div>
+                        <div class="user-registered">
+                            <span class="montserrat-light font-size-14"><strong>10.017</strong> Pengguna Terdaftar</span>
+                        </div>
+                        <div class="benefits">
+                            <ul class="px-0 py-3">
+                                <li class="py-1 montserrat-light font-size-14"><strong>2X RESOURCE POWER</strong></li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>Unlimited</strong> Disk Space</li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>Unlimited</strong> Bandwidth</li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>Unlimited</strong> POP3 Email</li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>Unlimited</strong> Databases</li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>Unlimited</strong> Addon Domain</li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>Instant</strong> Backup</li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>Domain Gratis</strong> Selamanya</li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>Unlimited SSL</strong> Gratis Selamanya</li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>Private</strong> Name Server</li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>SpamAssassin</strong> Mail Protection</li>
+                            </ul>
+                        </div>
+                        <div class="mb-5">
+                            <a href="#" class="rounded-button primary montserrat-bold font-size-14">Pilih Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 price px-0">
+                    <div class="price-wrapper">
+                        <div class="price-header">
+                            <h4 class="montserrat-bold">Bisnis</h4>
+                        </div>
+                        <div class="price-content"></div>
+                        <div class="user-registered">
+                            <span class="montserrat-light font-size-14"><strong>3.552</strong> Pengguna Terdaftar</span>
+                        </div>
+                        <div class="benefits">
+                            <ul class="px-0 py-3">
+                                <li class="py-1 montserrat-light font-size-14"><strong>3X RESOURCE POWER</strong></li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>Unlimited</strong> Disk Space</li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>Unlimited</strong> Bandwidth</li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>Unlimited</strong> POP3 Email</li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>Unlimited</strong> Databases</li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>Unlimited</strong> Addon Domain</li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>Magic Auto</strong> Backup & Restore</li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>Domain Gratis</strong> Selamanya</li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>Unlimited SSL</strong> Gratis Selamanya</li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>Private</strong> Name Server</li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>Prioritas</strong> Layanan Support</li>
+                                <li class="py-1 montserrat-light font-size-14">
+                                    <i class="material-icons primary-color">star</i>
+                                    <i class="material-icons primary-color">star</i>
+                                    <i class="material-icons primary-color">star</i>
+                                    <i class="material-icons primary-color">star</i>
+                                    <i class="material-icons primary-color">star</i>
+                                </li>
+                                <li class="py-1 montserrat-light font-size-14"><strong>Spam Expert</strong> Pro Mail Protection</li>
+                            </ul>
+                        </div>
+                        <div class="mb-5">
+                            <a href="#" class="rounded-button montserrat-bold font-size-14">Pilih Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container php-limit-info py-4">
+            <div class="row banner pb-3">
+                <div class="col-12 text-center">
+                    <p class="montserrat-light">Powerful dengan Limit PHP yang Lebih Besar</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="offset-1 col-10">
+                    <div class="row">                        
+                        {% for php_limit in php_limit_info %}
+                        <div class="col-md-6 col-sm-12 text-center">
+                            <table class="table table-md table-striped text-center">
+                                {% for info in php_limit %}
+                                <tr>
+                                    <td>{{ info.text }}</td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="small-separator mb-5">
+
+        <div class="container package-included py-4">
+            <div class="row banner pb-3">
+                <div class="col-12 text-center">
+                    <p class="montserrat-light">Semua Paket Hosting Sudah Termasuk</p>
+                </div>
+            </div>
+            <div class="row">
+                {% for package in hosting_packages %}
+                <div class="col-md-4 mb-5">
+                    <div class="text-center">
+                        <img src="{{ package.image }}" alt="">
+                        <p class="montserrat-bold font-size-20">{{ package.title }}</p>
+                        <p>{{ package.description }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+                
+            </div>
+        </div>
+
+        <hr class="small-separator mb-5">
+
+        <div class="container laravel-support py-4">
+            <div class="row banner pb-3">
+                <div class="col-12 text-center">
+                    <p class="montserrat-light">Mendukung Penuh Framework Laravel</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="montserrat-light font-size-16 mb-0 lh-2">Tak perlu menggunakan dedicated server ataupun VPS yang mahal. Layanan PHP hosting murah kami mendukung penuh framework favorit Anda</p>
+                    <ul class="pt-3 fitur pl-0">
+                        <li>Install Laravel <strong>1 klik</strong> dengan Softaculous Installer.</li>
+                        <li>Mendukung ekstensi <strong>PHP MCrypt, phar, mbstring, json,</strong> dan <strong>fileinfo.</strong></li>
+                        <li>Tersedia <strong>Composer</strong> dan <strong>SSH</strong> untuk menginstal packages pilihan Anda.</li>
+                    </ul>
+                    <p class="mt-4"><small>Nb. Composer dan SSH hanya tersedia pada paket Personal dan Bisnis.</small></p>
+                    <div class=" mt-5">
+                        <a href="#" class="rounded-button primary montserrat-bold font-size-14">Pilih Hosting Anda</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <img src="assets/svg/illustration banner support laravel hosting.svg" alt="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="container php-limit-info py-4">
+            <div class="row banner pb-3">
+                <div class="col-12 text-center">
+                    <p class="montserrat-light">Modul Lengkap Untuk Menjalankan Aplikasi PHP Anda.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="offset-1 col-10">
+                    <div class="row">
+                        {% for php_module in php_modules %}
+                        <div class="col-md-3 col-6">
+                            <ul>
+                                {% for module in php_module %}
+                                <li>{{ module }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endfor %}
+                        <div class="col-md-12 my-5 text-center">
+                            <a href="#" class="rounded-button montserrat-bold font-size-14">Lihat Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container linux-technology py-4">
+            <div class="row banner pb-3">
+                <div class="col-md-6">
+                    <p class="montserrat-light">Linux Hosting yang stabil dengan Teknologi LVE</p>
+                    <p class="mb-5 mt-3 linux-technology-info">SuperMicro <strong>Intel Xeon 24-Cores</strong> server dengan RAM <strong>128 GB</strong> dan teknologi <strong>LVE CloudLinux</strong> untuk stabilitas server Anda. Dilengkapi dengan <strong>SSD</strong> untuk kecepatan <strong>MySQL</strong> dan caching, Apache load balancer berbasis LiteSpeed Technologies, <strong>CageFS</strong> security, <strong>Raid-10</strong> protection dan auto backup untuk keamanan website PHP Anda.</p>
+                    <a href="#" class="rounded-button primary montserrat-bold font-size-14">Pilih Hosting Anda</a>
+                </div>
+                <div class="col-md-6">
+                    <img src="assets/images/Image support.png" alt="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+
+        <div class="share py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-7 align-self-center">
+                        <span>Bagikan jika Anda menyukai halaman ini.</span>
+                    </div>
+                    <div class="col-sm-6 col-md-5 share-button social_media-share">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="support-banner">
+            <div class="container py-5">
+                <div class="row align-self-center">
+                    <div class="col-12 col-xl-9 text-center">
+                        <div class="my-3"></div>
+                        <div class="px-2">
+                            <span class="montserrat-light">Perlu <b>BANTUAN?</b> <span class="one">Hubungi Kami: </span></span>
+                            <span class="montserrat-bold one"><a href="" class="telp link-telp"></a> </span>
+                        </div>
+                        <div class="my-3"></div>
+                    </div>
+                    <div class="col-12 col-xl-3 text-center align-self-center">
+                        <div class="my-3"></div>
+                        <div>
+                            <a href="#" class="support-button"><i class="material-icons support-icon mr-2">question_answer</i> Live Chat</a>
+                        </div>
+                        <div class="my-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-menu pt-5">
+            <div class="container">
+                <div class="row">
+                    {% for ft in footer %}
+                    <div class="{{ ft.class }} pb-3 {{ (ft.nama == 'info') ? ft.nama }}">
+                        <p class="title roboto-bold">{{ ( ft.nama != 'social_media' ) ? ft.text }}</p>
+                        {% if ft.nama not in ['info', 'newsletter', 'social_media', 'payment'] %}
+                        <ul class="montserrat-regular text list {{ ft.nama }}"></ul>
+                        {% elseif ft.nama == 'newsletter' %}
+                        <div class="pt-2"></div>
+                        <div class="input-group input">
+                            <input type="text" class="form-control rounded-0" id="validationDefaultUsername" placeholder="Email" aria-describedby="inputGroupPrepend2" required="">
+                            <div class="input-submit">
+                                <input type="submit" class="btn btn-primary rounded-0" id="inputGroupPrepend2" value="Berlangganan">
+                            </div>
+                        </div>
+                        <p class="montserrat-light nl mt-3">Dapatkan promo dan konten menarik dari penyedia hosting terbaik Anda.</p>
+                        {% elseif ft.nama == 'social_media' %}
+                        <div class="pt-2"></div>
+                        <div class="row {{ ft.nama }} pt-3"></div>
+                        {% elseif ft.nama == 'payment' %}
+                        <div class="row payment-logo {{ ft.nama }}"></div>
+                        <p class="montserrat-light nl pt-3">Aktivasi instan dengan e-Payment. Hosting dan domain langsung aktif!</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright pt-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <hr>
+                    </div>
+                    <div class="col-md-8 col-sm-12 montserrat-light">
+                        Copyright ©2016 Niagahoster | Hosting powered by PHP7,
+                        CloudLinux, CloudFlare, BitNinja and DC Biznet Technovillage Jakarta<br>
+                        Cloud VPS Murah powered by Webuzo Softaculous, Intel SSD and cloud computing technology
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12 font-white center-text">
+                        <span class="syarat-dan-ketentuan montserrat-light">
+                            Syarat dan Ketentuan | Kebijakan Privasi
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                var header_menu = $('.header-menu');
+                var social_media = $('.social_media');
+                var social_media_share = $('.social_media-share');
+                var payment = $('.payment');
+                $.ajax({
+                    type: 'GET',
+                    url: 'json.php',
+                    data: { get_param: 'value' },
+                    dataType: 'json',
+                    success: function (result) {
+                        $.each(result.menu,function(k, v) {
+                            $('<a>',{ 
+                                href: k, 
+                                text: v, 
+                                class: 'nav-link px-2 ' 
+                            }).appendTo(header_menu);
+                        });
+                        $.each(result.footer,function(key) {
+                            var nama = $('.'+key);
+                            $.each(this, function (k, v) {
+                                $('<li>', {html: $('<a>', {class: 'montserrat-regular', href: k, text: v})}).appendTo(nama);
+                            })
+                        })
+                        $.each(result.info,function(k, v) {
+                            var info = $('.info');
+                            if ( $.type(v) == "object" ) {
+                                $('<a>', {class: 'montserrat-regular text telp link-telp'}).appendTo(info);
+                            } else {
+                                $('<p>', {class: 'montserrat-regular text', html: v.toString().replace(/\n/g, "<br>")}).appendTo(info);
+                            }
+                        })
+                        $.each(result.social_media,function(k, v) {
+                            $('<div>', {
+                                class: 'col text-center', 
+                                html: $('<a>', {
+                                    href: k, 
+                                    html: $('<i>', {
+                                        class: 'zmdi zmdi-'+v+' zmdi-circle '+v
+                                    })
+                                })
+                            }).appendTo(social_media);
+                        })
+                        $.each(result.social_media,function(k, v) {
+                            $('<div>', {
+                                class: 'jssocials-share jssocials-share-'+v, 
+                                html: $('<a>', {
+                                    class: 'jssocials-share-link', 
+                                    href: k, 
+                                    html: $('<i>', {
+                                        class: 'zmdi zmdi-hc-fw zmdi-'+v+' jssocials-share-logo '+v
+                                    })
+                                })
+                            }).appendTo(social_media_share);
+                        })
+                        $.each(result.payment,function(k, v) {
+                            $('<div>', {
+                                class: 'col col-xl-1 py-2', 
+                                html: $('<img>', {
+                                    class: 'logo-pembayaran', 
+                                    src: 'assets/svg/payment/'+v+'.svg'
+                                })
+                            }).appendTo(payment);
+                        })
+
+                        $('.telp').append(result.info.telp.text);
+                        $('.link-telp').attr('href', result.info.telp.link);
+                    }
+                });
+
+                $.ajax({
+                    type: 'GET',
+                    url: 'price.php',
+                    dataType: 'json',
+                    success: function (result) {
+                        $.each(result.price, function(k, v) {
+                            var main_price = v.price.split(".");
+                            $('<span>', {
+                                class: 'montserrat-light strikethrough font-size-14 d-block',
+                                html: v.currency + '.' + v.striked_price
+                            }).appendTo($('.price-content')[k])
+                            $('<div>', {
+                                class: 'montserrat-light font-size-16 d-flex justify-content-center',
+                                html: [
+                                    $('<span>', {
+                                        class: 'montserrat-light pt-2 mr-2',
+                                        html: v.currency
+                                    }), $('<span>', {
+                                        class: 'montserrat-bold font-size-48',
+                                        html: main_price[0]
+                                    }), $('<span>', {
+                                        class: 'montserrat-bold pt-2',
+                                        html: main_price[1]
+                                    }), $('<span>', {
+                                        class: 'montserrat-light pt-2',
+                                        html: v.period
+                                    })
+                                ]
+                            }).appendTo($('.price-content')[k])
+                        });
+                    }
+                });
+
+                var pull = $('#mobile-menu-toggle');
+                var menu = $('.nav-top-menu');
+
+                $(pull).on('click', function(e) {
+                    e.preventDefault();
+                    menu.slideToggle();
+                });
+
+                $(window).scroll(function(e) {
+                    var width = $(this).width();
+                    var scroller_anchor = $(".scroller_anchor").offset().top;
+
+                    if(width >= 320 && width <= 1023) {
+                        if($(this).scrollTop() > scroller_anchor && $('.logo-menu').css('position') != 'fixed') {
+                            $('.logo-menu-mobile').css({'position': 'fixed', 'width': '100%'});
+                            $('.trigger-margin-top').css('margin-top', '50px');
+                            $('header .nav-top-menu').css('margin-top', '55px');
+                        } else if($(this).scrollTop() <= scroller_anchor && $('.logo-menu').css('position') != 'relative') {
+                            $('.trigger-margin-top').css('margin-top', '0');
+                            $('header .nav-top-menu').css('margin-top', '0');
+                            $('.logo-menu-mobile').css({'position': 'relative'});
+                        }
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
